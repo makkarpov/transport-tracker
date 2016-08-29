@@ -1,0 +1,17 @@
+@import controllers.UserController.UserRequest
+@()(implicit rq: UserRequest[_])
+@layout("Анализ трека") {
+    <form action="@routes.HomeController.analyze()" method="post" enctype="multipart/form-data" class="form form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-3">Файл points.bin:</label>
+            <div class="col-sm-9">
+                <input type="file" name="points" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary">Анализировать</button>
+            </div>
+        </div>
+    </form>
+}

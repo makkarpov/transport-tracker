@@ -1,0 +1,19 @@
+@import controllers.UserController.UserRequest
+@import ru.makkarpov.ttanalyze.utils.ViewUtils._
+@()(implicit rq: UserRequest[_])
+@layout("Рисование на карте") {
+    <div>
+        <button type="button" class="btn btn-primary" id="clear">Очистить</button>
+        <button type="button" class="btn btn-primary" id="backspace">&larr; Backspace</button>
+        <label for="polygon" style="padding-left: 15px">
+            <input type="checkbox" name="polygon" id="polygon" />
+            Многоугольник
+        </label>
+    </div>
+    <hr />
+    <div id="mapArea"></div>
+    <hr />
+    <textarea id="result" style="width: 100%; height: 300px; font-family: monospace" class="form-control"></textarea>
+    <script src="@routes.Assets.versioned("javascripts/draw.js")"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=@MapKey&callback=initMap"></script>
+}

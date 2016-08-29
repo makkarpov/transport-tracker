@@ -1,0 +1,49 @@
+@import controllers.HomeController.GRSearchResult
+@import ru.makkarpov.ttanalyze.db.GroundTransport
+@import controllers.UserController.UserRequest
+@(q: Option[String], data: Seq[GRSearchResult])(implicit rq: UserRequest[_])
+@layout("Index page") {
+    <p>Поиск близких маршрутов транспорта:</p>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-3">Координаты</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="coords" value="@q.getOrElse("")" />
+                <div class="help-block">В формате DD.DDDDDD, DD.DDDDDD</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary">Искать</button>
+            </div>
+        </div>
+    </form>
+    <hr />
+    @if(data.nonEmpty) {
+        <table class="table table-striped" style="width: 100%">
+            <thead>
+                <tr>
+                    <th width="100">Расстояние</th>
+                    <th width="250">Номер</th>
+                    <th width="250">Тип</th>
+                    <th width="100">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(d <- data) {
+                    <tr class="route route-@(d.route.kind.toString.toLowerCase)">
+                        <td>@("%.2f" format d.dist) м.</td>
+                        <td>@d.route.index</td>
+                        <td>@d.route.kind match {
+                            case GroundTransport.Bus => {автобус}
+                            case GroundTransport.Trolleybus => {троллейбус}
+                            case GroundTransport.Tram => {трамвай}
+                            case GroundTransport.Monorail => {монорельс}
+                        }</td>
+                        <td><a href="@routes.HomeController.route(d.route.id)">смотреть</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

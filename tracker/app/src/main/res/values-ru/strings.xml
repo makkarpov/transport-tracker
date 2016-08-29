@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Транспортный трекер</string>
+
+    <string name="navigation_drawer_open">Открыть навигацию</string>
+    <string name="navigation_drawer_close">Закрыть навигацию</string>
+
+    <string name="settings">Настройки</string>
+
+    <string name="menu_current_track">Текущий трек</string>
+    <string name="menu_stored_tracks">Архив треков</string>
+    <string name="menu_statistics">Статистика</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="title_activity_settings">Настройки</string>
+
+    <string name="pref_header_my_locations">Мои места</string>
+
+    <string name="mp_add_place">Добавить место</string>
+    <string name="mp_no_networks">&lt;нет сетей&gt;</string>
+    <string name="mp_edit_place_name">Название места</string>
+    <string name="mp_edit_wifi_networks">WiFi-сети</string>
+    <string name="mp_edit_save">Сохранить</string>
+    <string name="pref_header_tracking">Трекинг</string>
+
+    <string name="manifest_svc_placewatch">Служба автозапуска</string>
+    <string name="manifest_svc_tracker">Служба трекинга</string>
+
+    <plurals name="n_points">
+        <item quantity="one">%d точка</item>
+        <item quantity="few">%d точки</item>
+        <item quantity="many">%d точек</item>
+    </plurals>
+
+    <string name="running_notification_title">Идет запись трека</string>
+    <string name="running_notification_text">Нажмите для вывода подробностей</string>
+    <string name="action_settings">Settings</string>
+
+    <plurals name="n_meters">
+        <item quantity="one">%d метр</item>
+        <item quantity="few">%d метра</item>
+        <item quantity="many">%d метров</item>
+    </plurals>
+
+    <plurals name="n_tracks">
+        <item quantity="one">%d трек</item>
+        <item quantity="few">%d трека</item>
+        <item quantity="many">%d треков</item>
+    </plurals>
+
+    <string name="fl_confirm_deletion">Подтвердите удаление</string>
+    <string name="fl_delete_yes">Удалить</string>
+    <string name="fl_delete_no">Отменить</string>
+    <string name="fl_track_date">Трек от %1$s, %2$s.</string>
+    <string name="fl_reanalyze_running">Идет повторный анализ</string>
+    <string name="fl_reanalyze_completed">Повторный анализ завершен</string>
+    <string name="fl_not_analyzed">(не анализирован)</string>
+    <string name="fl_not_completed">(не завершен)</string>
+
+    <string name="type_walk">Пешая прогулка</string>
+    <string name="type_raw">Не распознано</string>
+    <string name="type_ground">Поездка на %1$s %2$s</string>
+    <string name="type_ground_bus">автобусе</string>
+    <string name="type_ground_trolleybus">троллейбусе</string>
+    <string name="type_ground_tram">трамвае</string>
+    <string name="type_ground_monorail">монорельсе</string>
+    <string name="type_underground">Поездка в метро</string>
+
+    <string name="http_error">Ошибка HTTP: %s</string>
+
+    <string name="departure_point">Место отправления</string>
+    <string name="arrival_point">Место прибытия</string>
+
+    <string name="gps_status_ok">OK</string>
+    <string name="gps_status_failure">нет сигнала</string>
+    <string name="track_recording">Идет запись, %1$s, GPS: %2$s</string>
+    <string name="track_ready">Нажмите кнопку для начала записи</string>
+
+    <string-array name="map_tabs">
+        <item>Карта</item>
+        <item>Сводка</item>
+        <item>Анализ</item>
+    </string-array>
+
+    <string-array name="stats_tabs">
+        <item>По маршруту</item>
+        <item>По месту</item>
+        <item>Пешком</item>
+    </string-array>
+
+    <string name="place_delete_title">Подтвердите удаление</string>
+    <string name="place_delete_message">Место %s будет удалено.</string>
+    <string name="place_delete_yes">Удалить</string>
+    <string name="place_delete_no">Отменить</string>
+
+    <string name="pedestrian_speed">%.2f км/ч</string>
+    <string name="pedestrian_dist">%.2f км</string>
+    <string name="avg_pedestrian_speed">Ср. скорость ходьбы</string>
+
+    <string name="group_bus">А</string>
+    <string name="group_trolleybus">Тб</string>
+    <string name="group_tram">Тр</string>
+    <string name="group_monorail">Мр</string>
+    <string name="group_underground">М</string>
+    <string name="group_walks">Пешие прогулки</string>
+
+    <string name="act_statistics">Статистика</string>
+    <string name="act_edit_place">Редактирование места</string>
+    <string name="act_group_statistics">Статистика по группе</string>
+    <string name="act_place_stats">Статистика маршрута</string>
+    <string name="wait_time">Время ожидания</string>
+    <string name="recording_start">Начало записи</string>
+    <string name="recording_finish">Конец записи</string>
+    <string name="autostart">Автостарт</string>
+    <string name="autostart_start">Запуск</string>
+    <string name="autostart_finish">Остановка</string>
+    <string name="track_not_analyzed_yet">Этот трек еще не анализировался</string>
+    <string name="track_analyze">Анализировать</string>
+    <string name="avg_route_time">Ср. время в пути:</string>
+    <string name="avg_wait_time">Ср. время ожидания:</string>
+    <string name="extremely_long">Аномально долгие:</string>
+    <string name="iqr">Интерквартильный размах</string>
+    <string name="walked_month">Пройдено за месяц:</string>
+    <string name="walk_speed">Ср. скорость:</string>
+    <string name="place_always">Всегда</string>
+    <string name="place_now">Сейчас</string>
+    <string name="place_time">Выбрать время</string>
+    <string name="reanalyze_all">Переанализировать все</string>
+    <string name="open">Открыть</string>
+    <string name="delete">Удалить</string>
+    <string name="show_track">Показать трек</string>
+    <string name="color_as_speed">Цвет: скорость</string>
+    <string name="color_as_movement">Цвет: перемещение</string>
+    <string name="reanalyze_track">Анализировать повторно</string>
+    <string name="setup_places">Установить места</string>
+    <string name="edit">Редактировать</string>
+    <string name="autostart_off">Трекинг переключается только вручную</string>
+    <string name="autostart_on">Трекинг включается на основе \'Моих мест\'</string>
+    <string name="api_url">API-сервер</string>
+    <string name="appearance">Отображение</string>
+    <string name="point_indices">Номера точек</string>
+</resources>

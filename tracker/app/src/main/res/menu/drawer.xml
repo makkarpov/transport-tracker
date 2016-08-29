@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menu_current_track"
+            android:icon="@drawable/ic_my_location"
+            android:title="@string/menu_current_track" />
+
+        <item
+            android:id="@+id/menu_stored_tracks"
+            android:icon="@drawable/ic_menu_sd_storage"
+            android:title="@string/menu_stored_tracks" />
+
+        <item
+            android:id="@+id/menu_statistics"
+            android:icon="@drawable/ic_timeline"
+            android:title="@string/menu_statistics" />
+
+        <item
+            android:id="@+id/menu_settings"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="@string/menu_settings" />
+
+    </group>
+
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Send" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>

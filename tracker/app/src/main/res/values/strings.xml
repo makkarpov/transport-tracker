@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Transport Tracker</string>
+    <string name="api_url_default" translatable="false">http://0.0.0.0/api</string>
+    <string name="act_edit_place">Edit place</string>
+    <string name="act_group_statistics">Group statistics</string>
+    <string name="act_place_stats">Route statistics</string>
+    <string name="act_statistics">Statistics</string>
+    <string name="action_settings">Settings</string>
+    <string name="api_url">API server</string>
+    <string name="appearance">Appearance</string>
+    <string name="arrival_point">Arrival point</string>
+    <string name="autostart">Autostart</string>
+    <string name="autostart_finish">Arrival point</string>
+    <string name="autostart_start">Departure point</string>
+    <string name="autostart_off">Tracking starts manually</string>
+    <string name="autostart_on">Tracking starts based on \'My Places\'</string>
+    <string name="avg_pedestrian_speed">Avg. speed:</string>
+    <string name="avg_route_time">Avg. route time:</string>
+    <string name="avg_wait_time">Avg. wait time:</string>
+    <string name="color_as_movement">Color: movement</string>
+    <string name="color_as_speed">Color: speed</string>
+    <string name="delete">Delete</string>
+    <string name="departure_point">Departure point</string>
+    <string name="edit">Edit</string>
+    <string name="extremely_long">Extremely long:</string>
+    <string name="fl_confirm_deletion">Confirm deletion</string>
+    <string name="fl_delete_no">Cancel</string>
+    <string name="fl_delete_yes">Delete</string>
+    <string name="fl_not_analyzed">(not analyzed)</string>
+    <string name="fl_not_completed">(not finished)</string>
+    <string name="fl_reanalyze_completed">Reanalyze complete</string>
+    <string name="fl_reanalyze_running">Reanalyze running…</string>
+    <string name="fl_track_date">Track %1$s, %2$s.</string>
+    <string name="gps_status_failure">no fix</string>
+    <string name="gps_status_ok">OK</string>
+    <string name="group_bus">Bus</string>
+    <string name="group_monorail">Monorail</string>
+    <string name="group_tram">Tram</string>
+    <string name="group_trolleybus">Trolley</string>
+    <string name="group_underground">Underground</string>
+    <string name="group_walks">Walks</string>
+    <string name="http_error">HTTP error: %s</string>
+    <string name="iqr">Interquartile range</string>
+    <string name="manifest_svc_placewatch">Autostart service</string>
+    <string name="manifest_svc_tracker">Tracking service</string>
+    <string name="menu_current_track">Current track</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_statistics">Statistics</string>
+    <string name="menu_stored_tracks">Track archive</string>
+    <string name="mp_add_place">Add place</string>
+    <string name="mp_edit_place_name">Place name</string>
+    <string name="mp_edit_save">Save</string>
+    <string name="mp_edit_wifi_networks">WiFi networks</string>
+    <string name="mp_no_networks"><![CDATA[<no networks>]]></string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="open">Open</string>
+    <string name="pedestrian_dist">%.2f km</string>
+    <string name="pedestrian_speed">%.2f kmph</string>
+    <string name="place_always">Always</string>
+    <string name="place_delete_message">Place %s will be deleted</string>
+    <string name="place_delete_no">Cancel</string>
+    <string name="place_delete_title">Confirm deletion</string>
+    <string name="place_delete_yes">Delete</string>
+    <string name="place_now">Now</string>
+    <string name="place_time">Pick time</string>
+    <string name="point_indices">Point indices</string>
+    <string name="pref_header_my_locations">My places</string>
+    <string name="pref_header_tracking">Tracking</string>
+    <string name="reanalyze_all">Reanalyze all</string>
+    <string name="reanalyze_track">Reanalyze</string>
+    <string name="recording_finish">Recording start</string>
+    <string name="recording_start">Recording finish</string>
+    <string name="running_notification_title">Track is recording</string>
+    <string name="running_notification_text">Tap here for details</string>
+    <string name="settings">Settings</string>
+    <string name="setup_places">Set places</string>
+    <string name="show_track">Show track</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="track_analyze">Analyze</string>
+    <string name="track_not_analyzed_yet">This track was not analyzed yet</string>
+    <string name="track_ready">Press a button to start recording</string>
+    <string name="track_recording">Recording, %1$s, GPS: %2$s</string>
+    <string name="type_ground">%1$s ride, #%2$s</string>
+    <string name="type_ground_bus">Bus</string>
+    <string name="type_ground_monorail">Monorail</string>
+    <string name="type_ground_tram">Tram</string>
+    <string name="type_ground_trolleybus">Trolleybus</string>
+    <string name="type_raw">Not recognized</string>
+    <string name="type_underground">Underground ride</string>
+    <string name="type_walk">Walk</string>
+    <string name="wait_time">Waiting time</string>
+    <string name="walk_speed">Avg. speed:</string>
+    <string name="walked_month">Monthly distance:</string>
+
+    <plurals name="n_points">
+        <item quantity="one">%d point</item>
+        <item quantity="other">%d points</item>
+    </plurals>
+
+    <plurals name="n_meters">
+        <item quantity="one">%d meter</item>
+        <item quantity="other">%d meters</item>
+    </plurals>
+
+    <plurals name="n_tracks">
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
+</resources>

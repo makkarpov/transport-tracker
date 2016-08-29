@@ -1,0 +1,50 @@
+@import ru.makkarpov.ttanalyze.db.models.GroundRoute
+@import ru.makkarpov.ttanalyze.db.models.GroundStop
+@import ru.makkarpov.ttanalyze.db.models.GroundRouteStop
+@import ru.makkarpov.ttanalyze.utils.ViewUtils.MapKey
+@import play.api.libs.json.JsValue
+@import controllers.UserController.UserRequest
+@(pathJson: JsValue, route: GroundRoute, stops: Seq[(GroundRouteStop, GroundStop)])(implicit rq: UserRequest[_])
+@layout("Просмотр маршрута") {
+    <h2>Сведения о маршруте:</h2>
+    <table class="table table-striped">
+        <tr>
+            <th width="300">Номер</th>
+            <td>@route.index</td>
+        </tr>
+        <tr>
+            <th>Тип</th>
+            <td class="route route-@(route.kind.toString.toLowerCase)">@route.kind</td>
+        </tr>
+    </table>
+    <hr />
+    <div class="text-center"><span style="color: #ff0000">вперед</span> | <span style="color: #0000ff">назад</span></div>
+    <div id="mapArea"></div>
+    <hr />
+    <h2>Ассоциированные остановки:</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="50">№</th>
+                <th>Название</th>
+                <th width="300">Направление</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(((rs, s), i) <- stops.zipWithIndex) {
+                <tr>
+                    <td>@(i+1)</td>
+                    <td>@s.name</td>
+                    <td>@if(rs.forward){<span style="color: #ff0000">вперед</span> } else {
+                        <span style="color: #0000ff">назад</span> }</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <script>
+        var route = @Html(pathJson.toString());
+    </script>
+    <script src="@routes.Assets.versioned("javascripts/view_route.js")"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=@MapKey&callback=initMap">
+    </script>
+}

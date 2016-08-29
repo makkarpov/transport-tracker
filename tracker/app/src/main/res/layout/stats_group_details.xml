@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ru.makkarpov.ttdroid.WrapContentListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragmentDetails" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/avg_route_time"
+                    android:id="@+id/textView5" />
+
+                <ru.makkarpov.ttdroid.stats.charts.Histogram
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:id="@+id/timeHistogram"
+                    android:layout_below="@+id/textView5"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/iqr"
+                    android:id="@+id/textView8"
+                    android:layout_below="@+id/timeHistogram"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="17dp" />
+
+                <ru.makkarpov.ttdroid.stats.charts.Histogram
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:id="@+id/iqrHistogram"
+                    android:layout_below="@+id/textView8"
+                    android:layout_marginTop="4dp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:title="@string/autostart"
+        android:key="auto_start"
+        android:defaultValue="true"
+        android:summaryOff="@string/autostart_off"
+        android:summaryOn="@string/autostart_on"
+        />
+
+    <EditTextPreference
+        android:title="@string/api_url"
+        android:key="api_url"
+        android:defaultValue="@string/api_url_default" />
+
+    <PreferenceCategory
+        android:title="@string/appearance">
+
+        <SwitchPreference
+            android:title="@string/point_indices"
+            android:key="show_point_numbers"
+            android:defaultValue="false"
+            />
+
+    </PreferenceCategory>
+</PreferenceScreen>

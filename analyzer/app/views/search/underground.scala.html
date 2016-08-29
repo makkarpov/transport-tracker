@@ -1,0 +1,41 @@
+@import controllers.HomeController.USearchResult
+@import controllers.UserController.UserRequest
+@(q: Option[String], data: Seq[USearchResult])(implicit rq: UserRequest[_])
+@layout("Index page") {
+    <p>Поиск близких станций метро:</p>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-3">Координаты</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="coords" value="@q.getOrElse("")" />
+                <div class="help-block">В формате DD.DDDDDD, DD.DDDDDD</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary">Искать</button>
+            </div>
+        </div>
+    </form>
+    <hr />
+    @if(data.nonEmpty) {
+        <table class="table table-striped" style="width: 100%">
+            <thead>
+                <tr>
+                    <th width="100">Расстояние</th>
+                    <th width="250">Станция</th>
+                    <th width="250">Ветка</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(d <- data) {
+                    <tr>
+                        <td>@("%.2f" format d.dist) м.</td>
+                        <td>@d.station.name</td>
+                        <td><span class="underground-line" style="background-color: @d.line.colorHex; color: @d.line.textColorHex">@d.line.code</span> @d.line.name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

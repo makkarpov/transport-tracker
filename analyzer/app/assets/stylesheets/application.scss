@@ -1,0 +1,24 @@
+body {
+  padding-top: 70px;
+}
+
+.underground-line {
+  border-radius: 3px;
+  padding: 3px 6px;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+#mapArea {
+  width: 100%;
+  height: 800px;
+}
+
+.route {
+  td { font-weight: bold; }
+
+  &.route-bus td { color: #009900; }
+  &.route-trolleybus td { color: #2b43e2; }
+  &.route-tram td { color: #9e1706; }
+  &.route-monorail td { color: #000080; }
+}

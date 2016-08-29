@@ -1,0 +1,62 @@
+@import controllers.UserController._
+@(title: String)(content: Html)(implicit rq: UserRequest[_])
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/bootstrap.css")" />
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/application.css")" />
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@routes.HomeController.index()">Tracker Analyzer</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="@routes.HomeController.draw()">Рисование</a></li>
+                        @if(rq.has(PermReadTracks)){ <li><a href="@routes.HomeController.submitted(None)">Архив</a></li> }
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Поиск <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@routes.HomeController.underground_search(None)">Станций метро</a></li>
+                                <li><a href="@routes.HomeController.ground_search(None)">Маршрутов транспорта</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            @rq.user match {
+                                case None => {
+                                    <li><a href="@routes.UserController.login()">Вход в систему</a></li>
+                                }
+
+                                case Some(usr) => {
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@usr.username <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="@routes.UserController.logout()">Выйти из системы</a></li>
+                                    </ul>
+                                }
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container" style="padding-bottom: 60px;">
+            @content
+        </div>
+        <script src="@routes.Assets.versioned("javascripts/jquery-2.2.4.js")"></script>
+        <script src="@routes.Assets.versioned("javascripts/bootstrap.js")"></script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+@import ru.makkarpov.ttanalyze.analyze.AnalyzedTrack
+@import ru.makkarpov.ttanalyze.utils.ViewUtils._
+@import ru.makkarpov.ttanalyze.analyze.TrackFragment
+@import ru.makkarpov.ttanalyze.db.models.UndergroundStation
+@import ru.makkarpov.ttanalyze.db.models.UndergroundLine
+@import ru.makkarpov.ttanalyze.db.GroundTransport
+@import controllers.UserController.UserRequest
+@(track: AnalyzedTrack)(implicit rq: UserRequest[_])
+@underground(l: (UndergroundStation, UndergroundLine)) = {
+    <span class="underground-line" style="background-color: @l._2.colorHex; color: @l._2.textColorHex">@l._2.code</span>
+    @l._1.name
+}
+@layout("Анализ трека") {
+    <h2>Свойства трека</h2>
+    <table class="table">
+        <tr><th width="300">Количество точек</th><td>@track.rawPoints.size</td></tr>
+        <tr><th>Начало записи</th><td>@track.rawPoints.headOption.map(_.time).map(dateToStr).getOrElse(" -- ")</td></tr>
+        <tr><th>Конец записи</th><td>@track.rawPoints.lastOption.map(_.time).map(dateToStr).getOrElse(" -- ")</td></tr>
+    </table>
+    <hr />
+    <div>
+        <button type="button" class="btn btn-primary" id="prev">&lt;&lt;</button>
+        <button type="button" class="btn btn-primary" id="next">&gt;&gt;</button>
+        <span id="status" style="padding-left: 20px">&lt;status&gt;</span>
+    </div>
+    <hr />
+    <div id="mapArea"></div>
+    <hr />
+    <h2>Анализ:</h2>
+    <table class="table table-striped" id="fragmentTable">
+        <thead>
+            <tr>
+                <th width="40">№</th>
+                <th width="180">Время</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for((d, i) <- track.fragments.zipWithIndex){
+                <tr data-id="@i">
+                    <td>@(i+1)</td>
+                    <td>@dateToStr(track.rawPoints(d.startPoint).time)</td>
+                    <td>@d match {
+                        case r: TrackFragment.Raw => { не распознано, точки @r.startPoint &ndash; @r.endPoint }
+                        case n: TrackFragment.NoGPS => { нет GPS, точки @n.startPoint, @n.endPoint }
+                        case w: TrackFragment.Walk => { пешая прогулка }
+                        case u: TrackFragment.Underground => { поездка на метро, станции:
+                            @underground(u.enter) &rArr;&nbsp; @underground(u.exit)
+                        }
+                        case b: TrackFragment.Bus => { поездка на @b.route.kind match {
+                            case GroundTransport.Bus => {автобусе}
+                            case GroundTransport.Trolleybus => {троллейбусе}
+                            case GroundTransport.Tram => {трамвае}
+                        } @b.route.index, остановки:
+                            @b.enter.name &rArr;&nbsp; @b.exit.name, ожидание: @intervalToStr(b.waitTime)
+                        }
+                        case _ => { неизвестный фрагмент, точки @d.startPoint &ndash; @d.endPoint }
+                    }</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <script>
+        var track = @track.jsonStr;
+    </script>
+    <script src="@routes.Assets.versioned("javascripts/track.js")"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=@MapKey&callback=initMap">
+    </script>
+}
