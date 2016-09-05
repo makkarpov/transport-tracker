@@ -78,6 +78,11 @@ object TrackGrouper {
       case u: UndergroundFragment => Underground(u.stations)
     })
 
+  def keyIncluded(t: TrackFragment): Boolean = t match {
+    case _: GroundFragment | _: UndergroundFragment => true
+    case _ => false
+  }
+
   private def getPlace(th: TrackFiles): PlaceGroupKey = {
     val as = th.header.autoStart.get
     PlaceGroupKey(as.startPlace.name, as.finishPlace.get.name)

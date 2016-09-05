@@ -4,6 +4,7 @@ import android.util.Log
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics
 import ru.makkarpov.ttdroid.data.AnalyzedTrack.{GroundFragment, WalkFragment}
 import ru.makkarpov.ttdroid.data.TrackFiles
+import ru.makkarpov.ttdroid.stats.TrackGrouper
 import ru.makkarpov.ttdroid.stats.charts.Histogram.{HistogramBin, AggregatedAdapter}
 import ru.makkarpov.ttdroid.utils.Extensions._
 
@@ -71,7 +72,7 @@ object HistogramAdapters {
 
       val waitTime = data
         .flatMap(_.header.analyze)
-        .map(_.fragments.filterNot(_.isInstanceOf[WalkFragment])(idx) match {
+        .map(_.fragments.filter(TrackGrouper.keyIncluded)(idx) match {
           case g: GroundFragment => g.waitTime
           case x => throw new IllegalArgumentException(s"GroundFragment expected, got $x")
         }).filter(_ != 0).sum.toFloat / data.size
